@@ -35,4 +35,7 @@ CMD /etc/init.d/i2p start && tail -f /var/log/i2p/wrapper.log
 
 # running container including restart on boot
 # docker run -d --name i2p  -p 127.0.0.1: 7657:7657 -p 127.0.0.1:4444-4445:4444-4445  -v /data/docker/btsync/:/mnt/sync   --restart on-failure th/i2p:v20160725.1
+# docker's port forwarding apparently only binds tcp by default
+# have to forward udp in addition...
+# -p 127.0.0.1:12345:12345 -p 127.0.0.1:12345:12345/udp
 # remember to open ports in fw if enabled
