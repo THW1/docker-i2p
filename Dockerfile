@@ -24,6 +24,9 @@ RUN /etc/init.d/i2p start
 RUN echo "i2cp.tcp.bindAllInterfaces=true" >> /var/lib/i2p/i2p-config/router.config
 # Allows docker to NAT the port
 RUN sed -i s/::1,127.0.0.1/0.0.0.0/ /var/lib/i2p/i2p-config/clients.config
+# Control I2P's port to be controlled via an envvar
+#RUN sed -i "s/i2np.udp.internalPort=.*/i2np.udp.internalPort="$I2PPORT"/g" /var/lib/i2p/i2p-config/router.config &&  sed -i "s/i2np.udp.port=.*/i2np.udp.port="$I2PPORT"/g" /var/lib/i2p/i2p-config/router.config
+
 
 # Allow persistent config
 VOLUME ["/var/lib/i2p/i2p-config"]
