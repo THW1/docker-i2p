@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y unattended-upgrades && rm -rf /var/lib/
 RUN echo "53 01 * * * root /usr/bin/unattended-upgrade" >> /etc/cron.d/unattended-upgrade.cron
 
 # make sure the package repository is up to date
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 67ECE5605BCF1346
-RUN echo "deb http://deb.i2p2.no/ trusty main" >> /etc/apt/sources.list.d/i2p.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB9660B9EB2CC88B
+RUN echo "deb http://ppa.launchpad.net/i2p-maintainers/i2p/ubuntu xenial main" >> /etc/apt/sources.list.d/i2p.list
 
 RUN apt-get update
 RUN apt-get -y --force-yes install i2p
